@@ -1,5 +1,8 @@
 import prompt from "prompt-sync";
 import { summarize } from "./protocols/mysql/summarizeDb";
+import dotenv from "dotenv";
+
+dotenv.config({ path: "./config.env" });
 
 const collectParams = async () => {
   const promptSync = prompt({ sigint: true });
@@ -17,4 +20,14 @@ const collectParams = async () => {
 };
 
 console.log("Welcome....");
-collectParams();
+const mode = process.env.node_env;
+if (mode === "dev") {
+  summarize({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "socialnetwork",
+  });
+} else {
+  collectParams();
+}
