@@ -4,3 +4,12 @@ export interface mySqlConnectionParams {
   password: string;
   database: string;
 }
+
+export interface showTableResult {
+  [tableName: string]: string;
+}
+
+export interface showCreateTableResult {
+  Table: string;
+  "Create Table": string;
+}
