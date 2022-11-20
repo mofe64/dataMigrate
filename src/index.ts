@@ -26,7 +26,7 @@ if (mode === "dev") {
     host: "localhost",
     user: "root",
     password: "",
-    database: "socialnetwork",
+    database: "rental_system",
   });
 } else {
   collectParams();
